@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang = "fr">
+
+<head> 
+    <title>3 Part Project</title>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        #menu 
+        {
+            width: 20%;
+            font-size: 2em;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        #affichage2
+        {
+            width: 75%;
+            display: inline-block;
+            font-size: 1.5em;
+        }
+        
+        #affichage2 .categorie
+        {
+            width: 20%;
+            display: inline-block;
+            margin-top: 0px;
+            padding: 0px;
+            vertical-align: top;
+        }
+        
+        .categorie p
+        {
+            margin-bottom: 0px;
+        }
+        
+        .image
+        {
+            margin: 0px;
+        }
+        
+        #menu ul 
+        {
+            display: block;
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+            background-color: #e5eecc;
+        }
+        
+        #menu ul ul 
+        {
+            display: none;
+            margin-left: 20px;
+        }
+        
+        .choix 
+        {
+            background-color: #d5ccee;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<h1>3 Part Project</h1>
+
+<h2>Ce travail &agrave; &eacute;t&eacute; fait par Nico Butel-Marchildon </h2>
+
+<h2> Partie 1: Formulaire de conversion </h2>
+
+Valeur: <input type="text" name="valeurNum" id="valeurNum" placeholder="0">
+
+
+<span id="valeurSpan">Resultat ici</span> <br> 
+   
+
+<button onclick="conCM()" name="vers_cm" id="vers_cm"> Pouces vers cm</button>
+
+<button onclick="conPouces()" name="vers_pouces" id="vers_pouces"> Cm vers pouces</button>
+
+<button onclick="conFarenheit()" name="vers_faren" id="vers_faren"> Celcius vers Farenheit</button>
+
+<button onclick="conCelcius()" name="vers_celc" id="vers_celc"> Farenheit vers Celcius</button>
+
+
+
+
+<script>
+
+    
+       function conCM () {
+
+        let num = 2.5;
+        let n =  num.toFixed(2);
+        let r;
+        r = document.getElementById('valeurNum').value;
+
+        let resultat = r * n;
+
+        document.getElementById('valeurSpan').innerHTML = "pouces ==> " + resultat + " cm";
+
+}
+
+       function conPouces () {
+
+        let num = 2.5;
+        let n =  num.toFixed(2);
+        let r;
+        r = document.getElementById('valeurNum').value;
+
+        let resultat = r / n;
+
+        document.getElementById('valeurSpan').innerHTML = "cm ==> " + resultat + " pouces";
+
+
+       }
+
+       function conFarenheit () {
+
+        let v;
+        v = document.getElementById('valeurNum').value;
+
+        let n = v * 9/5 + 32;
+
+        let resultat = n.toFixed(1);
+
+        document.getElementById('valeurSpan').innerHTML = "celcius ==> " + resultat + " farenheit";
+
+        
+       }
+
+       function conCelcius () {
+
+        let v;
+        v = document.getElementById('valeurNum').value;
+
+        let n = (v - 32) * 5/9;
+
+        let resultat = n.toFixed(1);
+
+        document.getElementById('valeurSpan').innerHTML = "farenheit ==> " + resultat + " celcius";
+
+        
+
+       }
+
+
+</script>
+
+
+<h2> Partie 2: Affichage dans la page Web</h2>
+
+
+<div id ="nomUser">
+    <p>
+        Nom: <input type="text" name="nameTB" id="nameTB">
+
+    </p>
+    <p>
+        Niveau (1 &agrave; 6): <input type="text" name="niveauxTB" id="niveauxTB">
+        <button onclick="affichage()">Afficher partie 2</button>
+
+    </p>
+</div>
+
+   
+<div id="affichageIci">
+
+    <p> Affichage ici</p>
+
+</div>
+
+<script>
+
+    function affichage()
+    {
+
+        let nom;
+        nom = document.getElementById('nameTB').value;
+
+        let niveau;
+        niveau = document.getElementById('niveauxTB').value;
+        
+
+    if (niveau== 1)
+    {
+        document.getElementById('affichageIci').innerHTML = "<h1 style='color:green'>" + "Bonjour " + nom + " niveau=" + niveau + "</h1>";
+    }
+    else if (niveau== 2)
+    {
+        document.getElementById('affichageIci').innerHTML = "<h2 style='color:green'>" + "Bonjour " + nom + " niveau=" + niveau + "</h2>";
+    }
+    else if (niveau== 3)
+    {
+        document.getElementById('affichageIci').innerHTML = "<h3 style='color:green'>" + "Bonjour " + nom + " niveau=" + niveau + "</h3>";
+    }
+    else if (niveau== 4)
+    {
+        document.getElementById('affichageIci').innerHTML = "<h4 style='color:green'>" + "Bonjour " + nom + " niveau=" + niveau + "</h4>";
+    }
+    else if (niveau== 5)
+    {
+        document.getElementById('affichageIci').innerHTML = "<h5 style='color:green'>" + "Bonjour " + nom + " niveau=" + niveau + "</h5>";
+    }
+    else if (niveau== 6)
+    {
+        document.getElementById('affichageIci').innerHTML = "<h6 style='color:green'>" + "Bonjour " + nom + " niveau=" + niveau + "</h6>";
+    }
+    else 
+    {
+       document.getElementById('affichageIci').innerHTML = "<p style='color:red'>" + "Erreur le niveau doit &ecirc;tre entre 1 et 6 " + "</p>";
+    }
+
+    }
+
+</script>
+
+
+<div style="border-style: solid; border-width: 2px">
+    <h2>Partie 3 : Affichage du menu, animation des images et calcul du co&ucirc;t (6 pts)</h2>
+    <div id="menu">
+        <ul>
+            <li class="choix">Menu</li>
+            <li>Entr&eacute;e
+                <ul>
+                    <li class="entree">Escargot</li>
+                    <li class="entree">Salade verte</li>
+                    <li class="entree">Salade C&eacute;sar</li>
+                </ul>
+            </li>
+            <li>Principal
+                <ul>
+                    <li class="principal">Spaghetti</li>
+                    <li class="principal">Steak</li>
+                    <li class="principal">Pizza</li>
+                </ul>
+            </li>
+            <li>Dessert
+                <ul>
+                    <li class="dessert">Cr&egrave;me glac&eacute;e</li>
+                    <li class="dessert">G&acirc;teau</li>
+                    <li class="dessert">Pouding</li>
+                </ul>
+            </li>
+            <li>Boisson
+                <ul>
+                    <li class="boisson">Caf&eacute; / Th&eacute;</li>
+                    <li class="boisson">Boisson gazeuse</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="affichage2">
+        <h2 style="padding: 0px; margin: 0px">Votre choix:</h2>
+        <div class="categorie">
+            <p>Entr&eacute;:</p>
+            <p class="image" id="1"></p>
+        </div>
+        <div class="categorie">
+            <p>Principal:</p>
+            <p class="image" id="2"></p>
+        </div>
+        <div class="categorie">
+            <p>Dessert:</p>
+            <p class="image" id="3"></p>
+        </div>
+        <div class="categorie">
+            <p>Boisson:</p>
+            <p class="image" id="4"></p>
+        </div>
+    </div>
+    <div style="margin-left: 20%; margin-top: 40px">
+        <form>
+            <input type="button" value="Cliquez ici pour calculer la facture" onclick="calculer()" style="border-style: none; height: 40px; width: 508px; font-size: 2em">
+        </form>
+        <p id="resultat"></p>
+    </div>
+    <script>
+        var prix1 = 0;
+        var prix2 = 0;
+        var prix3 = 0;
+        var prix4 = 0;
+        $(document).ready(function()
+        {
+            var monMenu = { 
+                "Escargot": {cat: "Entree", image: "escargot.jpg", prix: 5.50}, 
+                "Salade verte" : {cat: "Entree", image: "salade2.jpg", prix: 5.95}, 
+                "Salade César": {cat: "Entree", image: "salade.jpg", prix: 6.95}, 
+                "Spaghetti": {cat: "Principal", image: "spaghetti.jpg", prix: 15.95}, 
+                "Steak": {cat: "Principal", image: "steak.jpg", prix: 25.95}, 
+                "Pizza": {cat: "Principal", image: "pizza.jpg", prix: 17.95}, 
+                "Crème glacée": {cat: "Dessert", image: "cremeglacee.jpg", prix: 4.25}, 
+                "Gâteau": {cat: "Dessert", image: "gateau.jpg", prix: 4.95}, 
+                "Pouding": {cat: "Dessert", image: "pouding.jpg", prix: 3.95}, 
+                "Café / Thé": {cat: "Boisson", image: "cafe.jpg", prix: 2.50}, 
+                "Boisson gazeuse": {cat: "Boisson", image: "boisson.jpg", prix: 2.95}};
+            $("li").click(function()
+            {
+                if ($(this).hasClass("choix"))
+                {
+                    return;
+                }
+                else
+                {
+                    $(this).parent().find(".choix").children("ul").hide();
+                    $(this).parent().children("li").removeClass("choix");
+                    $(this).addClass("choix").children("ul").slideToggle(500);
+                }
+            });
+            $("li li").click(function()
+            {
+                var choixMenu = monMenu[$(this).html()];
+                if ($(this).hasClass("entree"))
+                    {
+                        document.getElementById("1").innerHTML = "<img src=images/" + choixMenu["image"] + ">" + "<br>" + choixMenu["prix"].toPrecision(3) + "$";
+                        prix1 = choixMenu["prix"];
+                    }
+                else if ($(this).hasClass("principal"))
+                    {
+                        document.getElementById("2").innerHTML = "<img src=images/" + choixMenu["image"] + ">" + "<br>" + choixMenu["prix"] + "$";
+                        prix2 = choixMenu["prix"];
+                    }
+                else if ($(this).hasClass("dessert"))
+                    {
+                        document.getElementById("3").innerHTML = "<img src=images/" + choixMenu["image"] + ">" + "<br>" + choixMenu["prix"] + "$";
+                        prix3 = choixMenu["prix"];
+                    }
+                else if ($(this).hasClass("boisson"))
+                    {
+                        document.getElementById("4").innerHTML = "<img src=images/" + choixMenu["image"] + ">" + "<br>" + choixMenu["prix"].toPrecision(3) + "$";
+                        prix4 = choixMenu["prix"];
+                    }
+            }); 
+        });
+        function calculer()
+        {
+            var somme = prix1 + prix2 + prix3 + prix4;
+            var taxe = parseFloat(somme * 0.05) + parseFloat(somme * 0.09975);
+            document.getElementById("resultat").innerHTML = "Total : " + somme.toPrecision(4) + "$ taxes : " + taxe.toPrecision(3) + " = " + (somme + taxe).toPrecision(4) + "$";
+        }
+    </script>
+</div>
+</body>
+</html>
